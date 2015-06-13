@@ -3,6 +3,19 @@ rvm:
 - jruby-1.7.20
 before_install:
 - gem install bundler -v 1.10.1
+- sudo rm -rf /etc/apt/sources.list.d/couchdb-ppa-source.list
+- sudo rm -rf /etc/apt/sources.list.d/mongodb.list
+- sudo rm -rf /etc/apt/sources.list.d/datastax-source.list
+- sudo rm -rf /etc/apt/sources.list.d/rabbitmq-source.list
+- sudo rm -rf /etc/apt/sources.list.d/mapopa-source.list
+- sudo rm -rf /etc/apt/sources.list.d/webupd8team-java-ppa-source.list
+- sudo rm -rf /etc/apt/sources.list.d/maven3-ppa-source.list
+- wget -O- http://packages.couchbase.com/ubuntu/couchbase.key | sudo apt-key add -
+- echo deb http://packages.couchbase.com/snapshot/ubuntu oneiric oneiric/main | sudo tee /etc/apt/sources.list.d/couchbase.list
+- sudo apt-get update
+- sudo apt-get -y install libcouchbase2-dev
+#install:
+#- sudo apt-get -y install libcouchbase-dev libcouchbase2-core libcouchbase2-libevent libevent-dev
 script: bundle exec rspec
 deploy:
   provider: rubygems
