@@ -1,22 +1,21 @@
-require "logstash/devutils/rspec/spec_helper"
+# require "logstash/devutils/rspec/spec_helper"
 require File.absolute_path(File.join(File.dirname(__FILE__), '../../lib/logstash/outputs/couchbase'))
-require 'couchbase'
-require "logstash/codecs/plain"
-require "logstash/event"
 require 'rspec'
-require 'rspec-expectations'
+require 'couchbase'
+require 'logstash/codecs/plain'
+require 'logstash/event'
 
 describe LogStash::Outputs::Couchbase do
   let(:sample_event) { LogStash::Event.new }
-
-  # before do
-  #   output.register
-  # end
 
   describe 'store document' do
     before {
       @key = '123'
       @expected_output = Couchbase::Document.new(:id => @key, :content => sample_event)
+
+      # Couchbase::Cluster.any_instance.stub(:new).and_return(nil)
+      # Couchbase::Cluster.any_instance.stub(:open_bucket).and_return(nil)
+      # Couchbase::Cluster.any_instance.stub(:upsert).and_return(nil)
     }
     subject {
       # key = '123'
