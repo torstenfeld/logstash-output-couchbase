@@ -14,7 +14,7 @@ before_install:
 - echo deb http://packages.couchbase.com/ubuntu precise precise/main | sudo tee /etc/apt/sources.list.d/couchbase.list
 - sudo apt-get update
 - sudo apt-cache search libcouchbase
-- wget wget http://packages.couchbase.com/releases/3.0.3/couchbase-server-enterprise_3.0.3-ubuntu12.04_amd64.deb
+- wget http://packages.couchbase.com/releases/3.0.3/couchbase-server-enterprise_3.0.3-ubuntu12.04_amd64.deb
 install:
 - sudo apt-get -y install libcouchbase-dev libcouchbase2-libevent
 #- sudo apt-get -y install libcouchbase2-dev
