@@ -22,5 +22,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency "logstash-core", ">= 1.4.0", "< 2.0.0"
   s.add_runtime_dependency "logstash-codec-plain"
   s.add_runtime_dependency "couchbase", "~> 2.0.0.pre.1-java"
+  s.add_development_dependency 'rspec', '~> 2.14'
   s.add_development_dependency "logstash-devutils"
+  s.add_development_dependency 'coveralls', '~> 0.8'
 end
